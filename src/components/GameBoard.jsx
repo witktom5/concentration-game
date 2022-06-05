@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import GameContext from '../context/GameContext';
 import gameCards from '../gameCards';
 import GameCard from './GameCard';
 
 function GameBoard() {
   const [isLoading, setIsLoading] = useState(true);
-  const [cards, setCards] = useState([]);
-  const [selectedCards, setSelectedCards] = useState([]);
+  const { cards, setCards } = useContext(GameContext);
 
   useEffect(() => {
     setIsLoading(true);
     const cardsWithPairs = [...gameCards, ...gameCards];
     const shuffledCards = cardsWithPairs.sort((a, b) => 0.5 - Math.random());
-    setCards(shuffledCards);
+    const withId = shuffledCards.map((el, i) => ({ ...el, cardId: i }));
+    setCards(withId);
     setIsLoading(false);
   }, []);
 
@@ -19,8 +20,14 @@ function GameBoard() {
     <div>Loading</div>
   ) : (
     <div className='grid px-3 grid-cols-4 gap-4'>
-      {cards.map((card) => (
-        <GameCard image={card.image} pairId={card.pairId} />
+      {cards.map((card, i) => (
+        <GameCard
+          key={i}
+          cardId={card.cardId}
+          image={card.image}
+          pairId={card.pairId}
+          isTurned={card.isTurned}
+        />
       ))}
     </div>
   );

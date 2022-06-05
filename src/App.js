@@ -5,17 +5,20 @@ import Home from './pages/Home';
 import Instructions from './pages/Instructions';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { GameProvider } from './context/GameContext';
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route element={<Home />} path='/' />
-        <Route element={<About />} path='/about' />
-        <Route element={<Game />} path='/play' />
-        <Route element={<Instructions />} path='/instructions' />
-      </Routes>
+      <GameProvider>
+        <Routes>
+          <Route element={<Home />} path='/' />
+          <Route element={<About />} path='/about' />
+          <Route element={<Game />} path='/play' />
+          <Route element={<Instructions />} path='/instructions' />
+        </Routes>
+      </GameProvider>
       <Footer />
     </Router>
   );
