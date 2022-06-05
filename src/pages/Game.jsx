@@ -1,4 +1,10 @@
+import GameBoard from '../components/GameBoard';
+
 function Game() {
-  return <div>Game</div>;
+  return (
+    <main className='mx-auto my-auto py-8'>
+      <GameBoard />
+    </main>
+  );
 }
 export default Game;
