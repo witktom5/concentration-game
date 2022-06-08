@@ -4,8 +4,8 @@ function About() {
       <header>
         <h1 className='text-4xl font-bold text-center mb-20 mt-8'>About</h1>
       </header>
-      <section className='grid md:grid-cols-2 2xl:grid-cols-4 gap-6'>
-        <div className='card bg-base-300 shadow-md flex-1'>
+      <section className='grid md:grid-cols-2 2xl:grid-cols-4 gap-6  text-neutral-content'>
+        <div className='card bg-neutral shadow-md flex-1'>
           <div className='card-body'>
             <h2 className='card-title'>Lorem</h2>
             <p>
@@ -17,7 +17,7 @@ function About() {
             </p>
           </div>
         </div>
-        <div className='card bg-base-300 shadow-md flex-1'>
+        <div className='card bg-neutral shadow-md flex-1'>
           <div className='card-body'>
             <h2 className='card-title'>Ipsum</h2>
             <p>
@@ -28,7 +28,7 @@ function About() {
             </p>
           </div>
         </div>
-        <div className='card bg-base-300 shadow-md '>
+        <div className='card bg-neutral shadow-md '>
           <div className='card-body'>
             <h2 className='card-title'>Dolor</h2>
             <p>
@@ -39,7 +39,7 @@ function About() {
             </p>
           </div>
         </div>
-        <div className='card bg-base-300 shadow-md '>
+        <div className='card bg-neutral shadow-md '>
           <div className='card-body'>
             <h2 className='card-title'>Consectetur</h2>
             <p>
