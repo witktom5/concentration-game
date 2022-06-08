@@ -43,7 +43,7 @@ code {
 .game-card {
   cursor: pointer;
   background-color: transparent;
-  width: min(14vw, 16vh);
+  width: min(13vw, 15vh);
   aspect-ratio: 4/5;
   min-height: 80px;
   min-width: 64px;
@@ -77,7 +77,7 @@ code {
 }
 
 .game-card img {
-  width: min(14vw, 16vh);
+  width: min(13vw, 15vh);
   aspect-ratio: 4/5;
   min-height: 80px;
   min-width: 64px;

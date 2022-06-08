@@ -1,10 +1,10 @@
 function About() {
   return (
-    <main className='w-5/6 md:w-4/5 lg:w-3/5 mx-auto my-auto pb-8'>
+    <main className='w-5/6 md:w-4/5 lg:w-3/5 2xl:w-1/2 mx-auto my-auto pb-8'>
       <header>
         <h1 className='text-4xl font-bold text-center mb-20 mt-8'>About</h1>
       </header>
-      <section className='grid md:grid-cols-2 2xl:grid-cols-4 gap-6  text-neutral-content'>
+      <section className='grid md:grid-cols-2 2xl:grid-cols-3 gap-6  text-neutral-content'>
         <div className='card bg-neutral shadow-md flex-1'>
           <div className='card-body'>
             <h2 className='card-title'>Lorem</h2>
@@ -39,14 +39,15 @@ function About() {
             </p>
           </div>
         </div>
-        <div className='card bg-neutral shadow-md '>
+        <div className='card bg-neutral shadow-md 2xl:col-span-3'>
           <div className='card-body'>
             <h2 className='card-title'>Consectetur</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perferendis, dolores. A quis quas laborum corrupti quod ipsa
               repudiandae! Harum, porro? Repellat odit tempore reprehenderit.
-              Quibusdam deleniti alias doloremque dolores deserunt.
+              Quibusdam deleniti alias doloremque dolores deserunt. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
         </div>

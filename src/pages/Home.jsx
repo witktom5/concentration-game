@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <main className='w-5/6 sm:w-4/5 md:w-3/5 lg:w-2/5 mx-auto my-auto pb-8'>
+    <main className='w-5/6 sm:w-4/5 md:w-3/5 lg:w-1/3 mx-auto my-auto pb-8'>
       <header>
         <h1 className='text-4xl font-bold text-center mb-14 mt-8'>
           Concentration Game
