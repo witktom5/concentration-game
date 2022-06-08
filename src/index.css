@@ -27,14 +27,14 @@ code {
   background-position: center;
   background-size: cover;
   place-items: center;
-  border-radius: 2em;
+  border-radius: 0.5em;
 }
 
 .game-card {
   cursor: pointer;
   background-color: transparent;
-  width: min(13vw, 15vh);
-  aspect-ratio: 3/4;
+  width: min(14vw, 16vh);
+  aspect-ratio: 4/5;
   perspective: 1000px;
   opacity: 1;
   transition: opacity 700ms;
@@ -67,8 +67,8 @@ code {
 }
 
 .game-card img {
-  width: min(13vw, 15vh);
-  aspect-ratio: 3/4;
+  width: min(14vw, 16vh);
+  aspect-ratio: 4/5;
   border: solid 2px white;
 }
 
