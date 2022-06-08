@@ -15,3 +15,7 @@ This project was created using React, Tailwind, DaisyUI. Images from Unsplash we
 ## How to play
 
 User is presented a 4x4 grid of cards. Cards can be clicked on on to reveal image on their reverse. After reversing one of the cards, user can click on another one. If both cards share the same image they get collected. Otherwise both card's images get hidden again. Goal is to collect all of the cards in minimum amount of moves.
+
+## License
+
+The MIT License
