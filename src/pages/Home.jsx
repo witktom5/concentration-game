@@ -4,7 +4,7 @@ function Home() {
   return (
     <main className='w-4/6 md:w-3/5 lg:w-2/5 mx-auto my-auto pb-8'>
       <header>
-        <h1 className='text-4xl font-bold text-center mb-20 mt-8'>
+        <h1 className='text-4xl font-bold text-center mb-14 mt-8'>
           Concentration Game
         </h1>
         <p className='text-xl text-center'>
@@ -12,7 +12,7 @@ function Home() {
           press "Instructions" if you want to learn how to play. Have fun!
         </p>
       </header>
-      <section className='grid md:grid-cols-2 mt-12 gap-5'>
+      <section className='grid md:grid-cols-2 mt-14 gap-5'>
         <Link to='/play' className='btn btn-success'>
           Play
         </Link>
