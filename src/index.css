@@ -22,12 +22,22 @@ code {
     monospace;
 }
 
+.game-board {
+  background-image: url('/src/assets/img/bg.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 2.5em;
+  border-radius: 2em;
+}
+
 .game-card {
   cursor: pointer;
   background-color: transparent;
-  height: 18vh;
+  width: min(13vw, 15vh);
   aspect-ratio: 3/4;
   perspective: 1000px;
+  opacity: 1;
+  transition: opacity 700ms;
 }
 
 .inner {
@@ -57,6 +67,21 @@ code {
 }
 
 .game-card img {
-  height: 18vh;
+  width: min(13vw, 15vh);
   aspect-ratio: 3/4;
+  border: solid 2px white;
+}
+
+.game-card,
+.inner,
+.outer,
+.front,
+.back,
+.game-card img {
+  border-radius: 0.35em;
+}
+
+.removed {
+  opacity: 0;
+  cursor: default;
 }

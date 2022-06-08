@@ -1,39 +1,69 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useCallback } from 'react';
 import GameContext from '../context/GameContext';
 import reverse from '../assets/img/reverse.jpg';
 
-function GameCard({ image, cardId, pairId, isTurned }) {
+function GameCard({ image, cardId, pairId, isTurned, isRemoved }) {
   const [twoSelected, setTwoSelected] = useState(false);
-  const { cards, setCards, selectedCards, setSelectedCards } =
-    useContext(GameContext);
+  const {
+    cards,
+    setCards,
+    selectedCards,
+    removedCards,
+    setSelectedCards,
+    setRemovedCards,
+  } = useContext(GameContext);
 
-  // turn a card
+  // flip a card/cards
 
-  const turnCard = (id, id2) => {
-    setCards(
-      cards.map((card) => {
-        if (card.cardId === id || card.cardId === id2) {
-          return { ...card, isTurned: !isTurned };
-        }
-        return card;
-      })
-    );
-  };
+  const turnCard = useCallback(
+    (id, id2) => {
+      setCards(
+        cards.map((card) => {
+          if (card.cardId === id || card.cardId === id2) {
+            return { ...card, isTurned: !isTurned };
+          }
+          return card;
+        })
+      );
+    },
+    [cards, isTurned, setCards]
+  );
 
   useEffect(() => {
     if (twoSelected) {
-      console.log(selectedCards);
       if (selectedCards[0].pairId === selectedCards[1].pairId) {
-        console.log('match');
+        setTimeout(() => {
+          setCards(
+            cards.map((card) => {
+              if (card.pairId === pairId) {
+                return { ...card, isRemoved: true };
+              }
+              return card;
+            })
+          );
+          setRemovedCards(removedCards + 2);
+          setTwoSelected(false);
+          setSelectedCards([]);
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          turnCard(selectedCards[0].cardId, selectedCards[1].cardId);
+          setTwoSelected(false);
+          setSelectedCards([]);
+        }, 1500);
       }
-
-      setTimeout(() => {
-        turnCard(selectedCards[0].cardId, selectedCards[1].cardId);
-        setTwoSelected(false);
-        setSelectedCards([]);
-      }, 2000);
     }
-  }, [twoSelected]);
+  }, [
+    twoSelected,
+    selectedCards,
+    setSelectedCards,
+    turnCard,
+    cards,
+    removedCards,
+    pairId,
+    setCards,
+    setRemovedCards,
+  ]);
 
   // on card click
 
@@ -46,7 +76,10 @@ function GameCard({ image, cardId, pairId, isTurned }) {
   };
 
   return (
-    <div className='game-card select-none' onClick={handleCardClick}>
+    <div
+      className={`game-card select-none ${isRemoved && 'removed'}`}
+      onClick={isRemoved ? undefined : handleCardClick}
+    >
       <div className={isTurned ? 'inner turned' : 'inner'}>
         <div className='back'>
           <img src={image} alt='' />
