@@ -11,6 +11,8 @@ function GameCard({ image, cardId, pairId, isTurned, isRemoved }) {
     removedCards,
     setSelectedCards,
     setRemovedCards,
+    setMoves,
+    moves,
   } = useContext(GameContext);
 
   // flip a card/cards
@@ -63,6 +65,8 @@ function GameCard({ image, cardId, pairId, isTurned, isRemoved }) {
     pairId,
     setCards,
     setRemovedCards,
+    moves,
+    setMoves,
   ]);
 
   // on card click
@@ -70,14 +74,17 @@ function GameCard({ image, cardId, pairId, isTurned, isRemoved }) {
   const handleCardClick = () => {
     if (selectedCards.length === 2) return; //  If 2 cards are selected no effect on click untill they flip back
     if (isTurned) return;
-    if (selectedCards.length === 1) setTwoSelected(true);
+    if (selectedCards.length === 1) {
+      setMoves(moves + 1);
+      setTwoSelected(true);
+    }
     turnCard(cardId);
     setSelectedCards([...selectedCards, { pairId, cardId }]);
   };
 
   return (
     <div
-      className={`game-card select-none ${isRemoved && 'removed'}`}
+      className={`game-card select-none ${isRemoved ? 'removed' : ''}`}
       onClick={isRemoved ? undefined : handleCardClick}
     >
       <div className={isTurned ? 'inner turned' : 'inner'}>

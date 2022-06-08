@@ -3,6 +3,7 @@ import { createContext, useState } from 'react';
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
+  const [moves, setMoves] = useState(0);
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [removedCards, setRemovedCards] = useState(0);
@@ -16,6 +17,8 @@ export const GameProvider = ({ children }) => {
         setCards,
         setSelectedCards,
         setRemovedCards,
+        moves,
+        setMoves,
       }}
     >
       {children}
