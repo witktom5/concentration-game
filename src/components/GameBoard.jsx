@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import GameContext from '../context/GameContext';
 import gameCards from '../gameCards';
 import GameCard from './GameCard';
+import Spinner from './Spinner';
 
 //  images for preload
 import Image1 from '../assets/img/1.jpg';
@@ -63,7 +64,7 @@ function GameBoard() {
         <img src={bg} alt='' />
         <img src={reverse} onLoad={() => setImgsLoading(false)} alt='' />
       </div>
-      <div>Loading</div>
+      <Spinner />
     </>
   ) : (
     <>
@@ -82,12 +83,12 @@ function GameBoard() {
               />
             ))}
             <div className='text-neutral-content col-span-3 place-self-start'>
-              Points: {removedCards > 0 ? removedCards / 2 : 0}
+              Pairs removed: {removedCards > 0 ? removedCards / 2 : 0}/8
             </div>
             <div className='text-neutral-content'>Moves: {moves}</div>
           </div>
           <button
-            className='btn btn-info flex mx-auto mt-2'
+            className='btn btn-info flex mx-auto mt-3'
             onClick={onNewGame}
           >
             Restart game

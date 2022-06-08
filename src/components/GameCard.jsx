@@ -46,13 +46,13 @@ function GameCard({ image, cardId, pairId, isTurned, isRemoved }) {
           setRemovedCards(removedCards + 2);
           setTwoSelected(false);
           setSelectedCards([]);
-        }, 1000);
+        }, 750);
       } else {
         setTimeout(() => {
           turnCard(selectedCards[0].cardId, selectedCards[1].cardId);
           setTwoSelected(false);
           setSelectedCards([]);
-        }, 1500);
+        }, 1200);
       }
     }
   }, [

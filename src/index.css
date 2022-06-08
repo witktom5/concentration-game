@@ -22,6 +22,16 @@ code {
     monospace;
 }
 
+.bg-nav-btn {
+  background-color: hsl(210, 20%, 20%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-nav-btn {
+    background-color: hsl(210, 5%, 8%);
+  }
+}
+
 .game-board {
   background-image: url('/src/assets/img/bg.jpg');
   background-position: center;
@@ -35,9 +45,11 @@ code {
   background-color: transparent;
   width: min(14vw, 16vh);
   aspect-ratio: 4/5;
+  min-height: 80px;
+  min-width: 64px;
   perspective: 1000px;
   opacity: 1;
-  transition: opacity 700ms;
+  transition: opacity 900ms;
 }
 
 .inner {
@@ -56,9 +68,7 @@ code {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.front {
-  background-color: #bbb;
-}
+
 .back {
   transform: rotateY(180deg);
 }
@@ -69,6 +79,8 @@ code {
 .game-card img {
   width: min(14vw, 16vh);
   aspect-ratio: 4/5;
+  min-height: 80px;
+  min-width: 64px;
   border: solid 2px hsl(0, 0%, 75%);
 }
 
@@ -89,4 +101,34 @@ code {
 .game-over-screen {
   padding: 3em;
   border-radius: 2em;
+}
+
+.loading-spinner-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: hsl(210, 10%, 25%) transparent hsl(210, 10%, 25%) transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
