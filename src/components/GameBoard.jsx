@@ -61,8 +61,8 @@ function GameBoard() {
         <img src={Image6} alt='' />
         <img src={Image7} alt='' />
         <img src={Image8} alt='' />
-        <img src={bg} alt='' />
-        <img src={reverse} onLoad={() => setImgsLoading(false)} alt='' />
+        <img src={reverse} alt='' />
+        <img src={bg} onLoad={() => setImgsLoading(false)} alt='' />
       </div>
       <Spinner />
     </>
@@ -82,10 +82,12 @@ function GameBoard() {
                 toRemove={card.toRemove}
               />
             ))}
-            <div className='text-neutral-content col-span-3 place-self-start'>
+            <div className='text-neutral-content col-span-3 place-self-start select-none'>
               Pairs removed: {removedCards > 0 ? removedCards / 2 : 0}/8
             </div>
-            <div className='text-neutral-content'>Moves: {moves}</div>
+            <div className='text-neutral-content select-none'>
+              Moves: {moves}
+            </div>
           </div>
           <button
             className='btn btn-info flex mx-auto mt-3'
