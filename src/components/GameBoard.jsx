@@ -17,7 +17,7 @@ import bg from '../assets/img/bg.jpg';
 //
 
 function GameBoard() {
-  const [imgsLoading, setImgsLoading] = useState(true);
+  const [imgsLoaded, setImgsLoaded] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { cards, setCards, removedCards, setRemovedCards, moves, setMoves } =
     useContext(GameContext);
@@ -40,19 +40,24 @@ function GameBoard() {
     setIsLoading(true);
   };
 
-  return isLoading || imgsLoading ? (
+  return isLoading || imgsLoaded < 10 ? (
     <>
+      {/*Preload all the images*/}
       <div className='opacity-0 absolute'>
-        <img src={Image1} alt='' />
-        <img src={Image2} alt='' />
-        <img src={Image3} alt='' />
-        <img src={Image4} alt='' />
-        <img src={Image5} alt='' />
-        <img src={Image6} alt='' />
-        <img src={Image7} alt='' />
-        <img src={Image8} alt='' />
-        <img src={bg} alt='' />
-        <img src={reverse} onLoad={setImgsLoading(false)} alt='' />
+        <img src={Image1} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image2} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image3} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image4} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image5} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image6} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image7} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={Image8} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img src={bg} onLoad={() => setImgsLoaded(imgsLoaded + 1)} alt='' />
+        <img
+          src={reverse}
+          onLoad={() => setImgsLoaded(imgsLoaded + 1)}
+          alt=''
+        />
       </div>
       <div>Loading</div>
     </>
