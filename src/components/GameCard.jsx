@@ -32,8 +32,8 @@ function GameCard({ image, cardId, pairId, isTurned, isRemoved }) {
   );
 
   useEffect(() => {
-    if (twoSelected) {
-      if (selectedCards[0].pairId === selectedCards[1].pairId) {
+    if (twoSelected && selectedCards.length === 2) {
+      if (selectedCards[0]?.pairId === selectedCards[1]?.pairId) {
         setTimeout(() => {
           setCards(
             cards.map((card) => {

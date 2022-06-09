@@ -19,11 +19,12 @@ import bg from '../assets/img/bg.jpg';
 
 function GameBoard() {
   const [imgsLoading, setImgsLoading] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const {
     cards,
     setCards,
     removedCards,
+    selectedCards,
     setRemovedCards,
     moves,
     setMoves,
@@ -37,16 +38,18 @@ function GameBoard() {
       const shuffledCards = cardsWithPairs.sort((a, b) => 0.5 - Math.random());
       const withId = shuffledCards.map((el, i) => ({ ...el, cardId: i }));
       setCards(withId);
+    }
+    if (cards && cards.length === 16) {
       setIsLoading(false);
     }
-  }, [cards, setCards, removedCards]);
+  }, [cards, cards.length, setCards, removedCards]);
 
   const onNewGame = () => {
+    setIsLoading(true);
     setCards([]);
     setSelectedCards([]);
     setRemovedCards(0);
     setMoves(0);
-    setIsLoading(true);
   };
 
   return isLoading || imgsLoading ? (
@@ -79,7 +82,6 @@ function GameBoard() {
                 pairId={card.pairId}
                 isTurned={card.isTurned}
                 isRemoved={card.isRemoved}
-                toRemove={card.toRemove}
               />
             ))}
             <div className='text-neutral-content col-span-3 place-self-start select-none'>
@@ -92,6 +94,7 @@ function GameBoard() {
           <button
             className='btn btn-info flex mx-auto mt-3'
             onClick={onNewGame}
+            disabled={selectedCards.length > 1}
           >
             Restart game
           </button>

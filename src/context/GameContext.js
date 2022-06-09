@@ -14,10 +14,10 @@ export const GameProvider = ({ children }) => {
         cards,
         selectedCards,
         removedCards,
+        moves,
         setCards,
         setSelectedCards,
         setRemovedCards,
-        moves,
         setMoves,
       }}
     >
